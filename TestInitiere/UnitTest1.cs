@@ -17,35 +17,16 @@ namespace Bricks
 
             try
             {
-                if (AreaHight > 0 & AreaWidth > 0 & BrickLength >0 & BrickLength <= AreaHight & BrickLength <= AreaWidth)
+                if (AreaHight > 0 && AreaWidth > 0 && BrickLength >0 && BrickLength <= AreaHight && BrickLength <= AreaWidth)
                 {
 
                     //Calculus
-                    try
-                    {
-                        int AreaSurface = AreaHight * AreaWidth;
-                        int BrickSurface = BrickLength * BrickLength;
-                        double AmountBricks = Math.Ceiling((double)AreaSurface / (double)BrickSurface);
+                                       
+                        double BricksLong= Math.Ceiling((double)AreaHight / (double)BrickLength);
+                        double BricksWide = Math.Ceiling((double)AreaWidth / (double)BrickLength);
+                        int AmountBricks = (int)BricksLong * (int)BricksWide;
                         return (int)AmountBricks;
-
-                    }
-                    catch (OverflowException)
-                    {
-                        try
-                        {
-                            long LAreaSurface = Convert.ToInt64(AreaHight) * Convert.ToInt64(AreaWidth);
-                            long LBrickSurface = Convert.ToInt64(BrickLength) * Convert.ToInt64(BrickLength);
-                            double LAmountBricks = Math.Ceiling((double)LAreaSurface / (double)LBrickSurface);
-                            return (int)LAmountBricks;
-                        }
-                        catch (InvalidCastException f)
-                        {
-                            if (f.Source != null) LogError(f.Source);
-                            return -1;
-                        }
-                    }
-                    
-               }             
+                 }             
                else
                {
                     LogError("Invlaid input");
@@ -58,7 +39,18 @@ namespace Bricks
                 return -3;
             }
         }
+        [TestMethod]
+        public void ValidValuesTest0() //random valid values <100
+        {
 
+            int Ahight = 6;
+            int AWidth = 6;
+            int BLength = 4;
+
+            int Result = CalculateBricks(Ahight, AWidth, BLength);
+
+            Assert.AreEqual(4, Result);
+        }
         [TestMethod]
         public void ValidValuesTest1() //random valid values <100
         {
@@ -81,7 +73,7 @@ namespace Bricks
 
             int Result = CalculateBricks(Ahight, AWidth, BLength);
 
-            Assert.AreEqual(57, Result);
+            Assert.AreEqual(64, Result);
         }
         [TestMethod]
         public void ValidValuesTest3() //random valid values < 10000
@@ -93,7 +85,7 @@ namespace Bricks
 
             int Result = CalculateBricks(Ahight, AWidth, BLength);
 
-            Assert.AreEqual(1410, Result);
+            Assert.AreEqual(1426, Result);
         }
         [TestMethod]
         public void InvalidValuesTest1() //negative area hight
