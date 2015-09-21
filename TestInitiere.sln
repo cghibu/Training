@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInitiere", "TestInitiere\TestInitiere.csproj", "{67193151-6B27-40BB-B0A4-88C7A8000BF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problema1", "TestInitiere\Problema1.csproj", "{67193151-6B27-40BB-B0A4-88C7A8000BF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coloane Excel", "Coloane Excel\Coloane Excel.csproj", "{0DD81039-8658-4702-8BF2-97C5A63CCE87}"
 EndProject
