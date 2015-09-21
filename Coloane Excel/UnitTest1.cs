@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Coloane_Excel
@@ -7,38 +8,38 @@ namespace Coloane_Excel
     public class UnitTest1
     {
         string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-        public string[] GetLastLetter(int index, int alphabetlength, int recurrsion)
+        int iteratie = 0;
+        public List<string> GetLetter(int index)
         {
-            string[] result = new string[recurrsion];
-            int div = index / alphabetlength;
-            int mod = index % alphabetlength;
 
-            if (recurrsion >= 1) result[recurrsion - 1] = alphabet[mod - 1];
-            else throw new IndexOutOfRangeException();
-            if (div <= alphabetlength) {
-                if (div >= 1) result[recurrsion - recurrsion] = alphabet[div - 1];
-                else if (recurrsion > 1 ) result[recurrsion - recurrsion] = alphabet[recurrsion]; 
-                else return result;
-                return result;
-            }
-            else
+            List < string > result = new List<string>();
+            int div = index / alphabet.Length;
+            int mod = index % alphabet.Length;
+            iteratie++;
+
+            if (div < 1)
             {
-                return GetLastLetter(div, alphabetlength, recurrsion - 1);
-
+                if (mod == 0) result.Add(alphabet[alphabet.Length - 1]);
+                else result.Add(alphabet[mod - 1]);
+               
             }
-              
-            
-        }
+            else {
+                result.InsertRange(0, GetLetter(div));
+                if (mod == 0) result.Add(alphabet[alphabet.Length - 1]);
+                else result.Add(alphabet[mod - 1]);
+                             
+            }
+            return result;
+
+
+        }          
+        
         public string[] GetColumnLabel(int colNum) {
 
-            int resLength = 0;
-            int Set = alphabet.Length;
-            double order = (Math.Log(colNum, Set));
-            double whole = Math.Truncate(order);
-            if (whole == order) resLength = (int)whole;
-            else resLength = (int)whole + 1;
-            return GetLastLetter(colNum, Set, resLength);
-                      
+
+            List<string> label = new List<string>();
+            label=GetLetter(colNum);
+            return label.ToArray();          
         }
         [TestMethod]
         public void ValidInputInAlphabet()
@@ -75,11 +76,22 @@ namespace Coloane_Excel
 
         }
         [TestMethod]
+        public void ValidInputInAlphabet23()
+        {
+
+            int colNum = 60;
+            string[] good = { "B", "H" };
+            string[] result = GetColumnLabel(colNum);
+            CollectionAssert.AreEqual(good, result);
+
+
+        }
+        [TestMethod]
         public void ValidInputInAlphabet3()
         {
 
             int colNum = 680;
-            string[] good = { "A", "A","D" };
+            string[] good = { "Z", "D" };
             string[] result = GetColumnLabel(colNum);
             CollectionAssert.AreEqual(good, result);
 
