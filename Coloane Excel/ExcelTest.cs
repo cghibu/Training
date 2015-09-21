@@ -7,30 +7,40 @@ namespace Coloane_Excel
     [TestClass]
     public class ExcelTest
     {
-        string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-
+        int baza = 26; //baza
+        int startpos = 65; //pos of A char
         public string GetLetter(int index)
         {
 
             string result="";
-            if (index < alphabet.Length)
+            char c=(char)65;
+            int temp=0;
+            if (index < baza)
             {
-                result = alphabet[index - 1];
+                temp= startpos + index - 1;
+                c = (char)temp;
+                result = c.ToString();
                 return result;
             }
             else
             {
-                int mod = index % alphabet.Length;
+                int mod = index % baza;
                 if (mod > 0)
-                     result = alphabet[mod - 1];
+                {
+                    temp = startpos + mod - 1;
+                    c = (char)temp;
+                    result = c.ToString();
+                }
                 else
                 {
-                    result = alphabet[alphabet.Length - 1];
+                    temp = startpos + baza - 1;
+                    c = (char)temp;
+                    result = c.ToString();
                     return result;
                 }
                 
             }
-            index = index / alphabet.Length;
+            index = index / baza;
             result = GetLetter(index)+result;
             return result;
         }
@@ -39,9 +49,8 @@ namespace Coloane_Excel
         
         public string GetColumnLabel(int colNum) {
 
-
             string label="";
-            label=GetLetter(colNum);
+            label = GetLetter(colNum);
             return label;
         }
         [TestMethod]
