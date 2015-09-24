@@ -8,11 +8,12 @@ namespace UnitTestProject2
     {
 
         public string Pepenele(int numar) {
-            if (numar > 0)
+            if (numar > 0 && numar !=2 )
             {
                 int mod = numar % 2;
                 if (mod == 0) return "DA";
-                else return "NU";
+                return "NU";
+                                
             }
             else return "NU";
         }
@@ -51,7 +52,14 @@ namespace UnitTestProject2
 
         }
 
+        [TestMethod]
+        public void TestPepene5()
+        {
+            int numar = 2;
+            string result = Pepenele(numar);
+            Assert.AreEqual("NU", result);
 
+        }
     }
 
 }

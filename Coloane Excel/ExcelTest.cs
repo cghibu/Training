@@ -13,7 +13,7 @@ namespace Coloane_Excel
         {
 
             string result="";
-            char c=(char)65;
+            char c= 'A';
             int temp=0;
             if (index < baza)
             {
