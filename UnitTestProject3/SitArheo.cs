@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestProject3
 {
     [TestClass]
-    public class Coloane
+    public class SitArheo
     {
         public double CalculateArea(double[] coo1, double[] coo2, double[] coo3) {
 

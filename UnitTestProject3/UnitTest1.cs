@@ -6,84 +6,32 @@ namespace UnitTestProject3
     [TestClass]
     public class UnitTest1
     {
-        public double catmananca(int capre, int zile, double kile, int catecapre, int catezile) {
 
-                return catecapre * catezile * kile / (capre * zile);
-               
-          
+        public uint[] CateCiuperciSunt(uint ntotal, uint ratiorosii) {
+
+            uint nrosii = 0;
+            uint nalbe = 0;
+            nalbe = ntotal/(1+ratiorosii);
+            nrosii = ntotal - nalbe;
+            uint[] result = new uint[2];
+            result[0] = nrosii;
+            result[1] = nalbe;
+            return result;
+
+        }
+
+        [TestMethod]
+        public void Ciuperci1()
+        {
+            uint ntotal = 100;
+            uint ratiorosii = 3;
+
+            uint[] test = new uint[2];
+            test[0] = 75;
+            test[1] = 25;
+            uint[] rezultat = CateCiuperciSunt(ntotal,ratiorosii);
+
+            Assert.AreEqual(test,rezultat);
+        }
     }
-        [TestMethod]
-        public void TestCapre1()
-        {
-            int capre = 10;
-            int zile = 2;
-            double kile = 200;
-            int catecapre = 12;
-            int catezile = 2;
-
-            double catekile = catmananca(capre, zile, kile, catecapre, catezile);
-
-            Assert.AreEqual(240, catekile,0);
-
-        }
-        [TestMethod]
-        public void TestCapre2()
-        {
-            int capre = 111;
-            int zile = 22;
-            double kile = 1856.36;
-            int catecapre = 2250;
-            int catezile = 12;
-
-            double catekile = catmananca(capre, zile, kile, catecapre, catezile);
-
-            Assert.AreEqual(20524.86, catekile,0.01);
-
-        }
-        [TestMethod]
-        public void TestCapre3()
-        {
-            int capre = 111789;
-            int zile = 22533;
-            double kile = 0;
-            int catecapre = 1;
-            int catezile = 1;
-
-            double catekile = catmananca(capre, zile, kile, catecapre, catezile);
-
-            Assert.AreEqual(0, catekile, 0);
-
-        }
-        [TestMethod]
-        public void TestCapre4()
-        {
-            int capre =1;
-            int zile = 1;
-            double kile = 0;
-            int catecapre = 1;
-            int catezile = 1;
-
-            double catekile = catmananca(capre, zile, kile, catecapre, catezile);
-
-            Assert.AreEqual(0, catekile, 0);
-
-        }
-        [TestMethod]
-        public void TestCapre5()
-        {
-            int capre = 1;
-            int zile = 1;
-            double kile = 1213415167.89;
-            int catecapre = 1;
-            int catezile = 1;
-
-            double catekile = catmananca(capre, zile, kile, catecapre, catezile);
-
-            Assert.AreEqual(1213415167.89, catekile, 0);
-
-        }
-
-    }
-
-
 }
