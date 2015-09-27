@@ -52,7 +52,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Caramizi.cs" />
     <Compile Include="Capre.cs" />
+    <Compile Include="ExcelTest.cs" />
+    <Compile Include="Pepene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SitArheo.cs" />
     <Compile Include="Ciuperci.cs" />
