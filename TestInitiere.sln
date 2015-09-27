@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capre", "UnitTestProject3\Capre.csproj", "{A0B5BB57-16CC-497B-B2CF-C5AB51DF84E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probleme", "UnitTestProject3\Probleme.csproj", "{A0B5BB57-16CC-497B-B2CF-C5AB51DF84E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
