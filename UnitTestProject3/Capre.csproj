@@ -57,6 +57,7 @@
     <Compile Include="SitArheo.cs" />
     <Compile Include="Ciuperci.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="trenuri.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
